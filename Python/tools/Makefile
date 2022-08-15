@@ -5,14 +5,14 @@ clean:
 	find . -type f -name ‘*.pyc’ -delete
 
 init:
-	python -m venv $(ENV)
+	python3 -m venv $(ENV)
 	$(ENV)/bin/pip install -U pip
 
 install: init
-	$(ENV)/bin/pip install -q -r requiremnts.txt
+	$(ENV)/bin/pip install -q -r requirements.txt
 
 install-dev: init
-	$(ENV)/bin/pip install -q -r requiremnts_dev.txt
+	$(ENV)/bin/pip install -q -r requirements_dev.txt
 
 format: install-dev
 	$(ENV)/bin/black ./
