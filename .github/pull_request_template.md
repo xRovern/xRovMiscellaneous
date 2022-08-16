@@ -22,6 +22,6 @@ Resolves #
 ### Screenshot
 
 <!---
-  Paste your local screenshot here. Add any references and info to help reviewers
+  Paste your screenshot here. Add any references and info to help reviewers
   understand your changes.
 -->
