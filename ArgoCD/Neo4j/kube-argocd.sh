@@ -29,9 +29,9 @@ argocd app get neo4j
 argocd app sync neo4j
 argocd app terminate-op neo4j
 # serve neo4j
-kubectl port-forward svc/neo4j 7474:7474
-kubectl port-forward svc/neo4j 7473:7473
-kubectl port-forward svc/neo4j 7687:7687
+kubectl port-forward svc/neo4j 7474:7474 -n argocd
+kubectl port-forward svc/neo4j 7473:7473 -n argocd
+kubectl port-forward svc/neo4j 7687:7687 -n argocd
 # delete argocd app
 argocd app delete neo4j
 
