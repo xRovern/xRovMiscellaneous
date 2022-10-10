@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: neo4j
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/neo4j/helm-charts.git
+    targetRevision: HEAD
+    path: neo4j-standalone
+    helm:
+      # Values file as block file
+      values: |
+        neo4j:
+          name: "neo4j-local"
+          password: "1234"
+          edition: "community"
+          acceptLicenseAgreement: "no"
+          resources:
+            cpu: "0.5"
+            memory: "2Gi"
+        volumes:
+          data:
+            mode: "defaultStorageClass"
+            defaultStorageClass:
+              accessModes:
+                - ReadWriteOnce
+              requests:
+                storage: 10Gi
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd
