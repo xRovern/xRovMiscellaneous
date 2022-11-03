@@ -1,6 +1,7 @@
 minikube version
 
 minikube start --nodes 2 -p neo4j-demo
+minikube tunnel -p neo4j-demo
 minikube stop -p neo4j-demo
 
 minikube profile list
